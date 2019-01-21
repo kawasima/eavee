@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "name": "email",
+    "type": "user_profile",
+    "is_required": true,
+    "max_length": 10
+  }
+]
