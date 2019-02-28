@@ -9,6 +9,7 @@ import javax.validation.ConstraintValidatorContext;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 /**
@@ -39,17 +40,19 @@ public class EavValidator implements ConstraintValidator<EavAttribute, Map<Strin
         return fields.stream()
                 .allMatch(field -> {
                     Object value = values.get(field.getName());
-                    if (value == null) {
-                        if (field.isRequired()) {
-                            context.buildConstraintViolationWithTemplate("is required")
-                                    .addConstraintViolation();
-                            return false;
-                        } else {
-                            return true;
-                        }
+                    if (value == null && field.isRequired()) {
+                        context.buildConstraintViolationWithTemplate("is required")
+                                .addConstraintViolation();
+                        return false;
                     }
 
-                    String stringValue = value.toString();
+                    if (!field.getFieldFormat().isValid(Objects.toString(value, null))) {
+                        context.buildConstraintViolationWithTemplate("")
+                                .addConstraintViolation();
+                        return false;
+                    }
+
+                    String stringValue = Objects.toString(value, "");
                     if (field.getMaxLength() != null && stringValue.length() > field.getMaxLength()) {
                         ((HibernateConstraintValidatorContext) context).addMessageParameter("value", field.getMaxLength());
                         context.buildConstraintViolationWithTemplate("{javax.validation.constraints.Max.message}")

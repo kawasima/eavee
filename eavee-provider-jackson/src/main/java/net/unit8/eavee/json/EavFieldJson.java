@@ -2,6 +2,8 @@ package net.unit8.eavee.json;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import net.unit8.eavee.EavField;
+import net.unit8.eavee.EavFormat;
+import net.unit8.eavee.EavFormatType;
 
 public class EavFieldJson implements EavField {
     private Long id;
@@ -65,8 +67,8 @@ public class EavFieldJson implements EavField {
         this.type = type;
     }
 
-    public String getFieldFormat() {
-        return fieldFormat;
+    public EavFormat getFieldFormat() {
+        return EavFormatType.valueOf(fieldFormat).getInstance();
     }
 
     public void setFieldFormat(String fieldFormat) {

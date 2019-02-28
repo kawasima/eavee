@@ -1,6 +1,8 @@
 package net.unit8.eavee.entity;
 
 import net.unit8.eavee.EavField;
+import net.unit8.eavee.EavFormat;
+import net.unit8.eavee.EavFormatType;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -67,8 +69,8 @@ public class EavFieldEntity implements EavField {
         this.type = type;
     }
 
-    public String getFieldFormat() {
-        return fieldFormat;
+    public EavFormat getFieldFormat() {
+        return EavFormatType.valueOf(fieldFormat).getInstance();
     }
 
     public void setFieldFormat(String fieldFormat) {

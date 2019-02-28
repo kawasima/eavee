@@ -1,5 +1,7 @@
 package net.unit8.eavee;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import net.unit8.eavee.provider.JsonEavAttributeProvider;
 import net.unit8.eavee.validator.EavAttribute;
 
@@ -19,10 +21,12 @@ public class Person {
         this.id = id;
     }
 
+    @JsonAnyGetter
     public Map<String, Object> getProfiles() {
         return profiles;
     }
 
+    @JsonAnySetter
     public void setProfiles(Map<String, Object> profiles) {
         this.profiles = profiles;
     }

@@ -10,7 +10,7 @@ public interface EavField {
     String getType();
     void setType(String type);
 
-    String getFieldFormat();
+    <T> EavFormat<T> getFieldFormat();
     void setFieldFormat(String fieldFormat);
 
     String getDescription();
