@@ -3,17 +3,17 @@ package net.unit8.eavee.provider;
 import net.unit8.eavee.EavField;
 import net.unit8.eavee.entity.EavFieldEntity;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class JpaEavAttributeProvider implements EavAttributeProvider {
-    private Map<String, List<EavFieldEntity>> eavFields;
+    private final Map<String, List<EavFieldEntity>> eavFields;
 
     public JpaEavAttributeProvider() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");

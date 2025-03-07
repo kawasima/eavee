@@ -1,6 +1,6 @@
 package net.unit8.eavee.entity;
 
-import javax.persistence.Id;
+import jakarta.persistence.Id;
 
 public class EavFieldPossibleValue {
     @Id

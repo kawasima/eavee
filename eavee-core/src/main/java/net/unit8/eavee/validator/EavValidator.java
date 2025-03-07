@@ -4,8 +4,8 @@ import net.unit8.eavee.EavField;
 import net.unit8.eavee.provider.EavAttributeProvider;
 import org.hibernate.validator.constraintvalidation.HibernateConstraintValidatorContext;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;

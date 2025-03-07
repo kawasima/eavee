@@ -2,8 +2,8 @@ package net.unit8.eavee.validator;
 
 import net.unit8.eavee.provider.EavAttributeProvider;
 
-import javax.validation.Constraint;
-import javax.validation.Payload;
+import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
